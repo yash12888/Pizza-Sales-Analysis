@@ -68,7 +68,7 @@ group by pizza_name
 order by total_quantity desc
 limit 5
 
-select pizza_name, cast(sum(distinct order_id) as decimal(10,2)) as total_orders
+select pizza_name, count(distinct order_id) as total_orders
 from pizza_sales
 group by pizza_name
 order by total_orders desc
@@ -84,8 +84,11 @@ group by pizza_name
 order by total_quantity
 limit 5
 
-select pizza_name, cast(sum(distinct order_id) as decimal(10,2)) as total_orders
+select pizza_name, count(distinct order_id) as total_orders
 from pizza_sales
 group by pizza_name
 order by total_orders
 limit 5
+
+select * from pizza_sales
+
